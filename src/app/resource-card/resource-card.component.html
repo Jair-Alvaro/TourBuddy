@@ -1,8 +1,8 @@
 <br><br>
-<a [routerLink]="['/resource-details', resource.id]" class="card-link">
+<a [routerLink]="['/resource-details', resource.code]" class="card-link">
   <!-- resource-card.component.html -->
   <div class="card" style="width: 25rem;"> <!-- Ajusta el ancho según sea necesario -->
-      <img src="{{ resource.image }}" class="card-img-top" alt="Resource Image">
+      <img src="{{ resource.photo }}" class="card-img-top" alt="Resource Image">
       <div class="card-body">
         <h5 class="card-title">{{ resource.name }}</h5>
         <p class="card-text">

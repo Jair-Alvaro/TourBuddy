@@ -20,7 +20,9 @@ import { ResourceService } from './resource.service';
 import { DescriptionCommentsComponent } from './description-comments/description-comments.component';
 import { MapRatingActivitiesComponent } from './map-rating-activities/map-rating-activities.component';
 
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { MapRatingActivitiesComponent } from './map-rating-activities/map-rating
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [
     AuthService, 

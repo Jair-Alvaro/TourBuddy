@@ -1,6 +1,5 @@
 <div class="row justify-content-between">
-  <div class="col-md-4" *ngFor="let resource of resources">
+  <div class="col-md-4" *ngFor="let resource of resourcesFirebase | async">
     <app-resource-card [resource]="resource"></app-resource-card>
   </div>
 </div>
-
