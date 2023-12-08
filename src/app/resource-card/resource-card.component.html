@@ -1,0 +1,22 @@
+<br><br>
+<a [routerLink]="['/resource-details', resource.id]" class="card-link">
+  <!-- resource-card.component.html -->
+  <div class="card" style="width: 25rem;"> <!-- Ajusta el ancho según sea necesario -->
+      <img src="{{ resource.image }}" class="card-img-top" alt="Resource Image">
+      <div class="card-body">
+        <h5 class="card-title">{{ resource.name }}</h5>
+        <p class="card-text">
+          <span>
+            <i class="bi bi-geo-alt"></i> {{ resource.distance }} km
+          </span>
+          <br>
+          rating:
+          <span *ngFor="let _ of [1, 2, 3, 4, 5]">
+            <i class="bi bi-star-fill"></i>
+          </span>
+          <br>
+          Comments: {{ resource.comments }}
+        </p>
+      </div>
+  </div>
+</a>

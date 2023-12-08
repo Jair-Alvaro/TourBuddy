@@ -4,20 +4,20 @@
   <div class="d-flex justify-content-center">
     <div class="card p-4 mx-auto text-center" style="border-radius: 15px; width: 400px;">
       <h2 class="mb-4">Iniciar Sesión</h2>
-      <form>
+      <!-- login.component.html -->
+
+      <form (ngSubmit)="login(username.value, password.value)">
         <div class="form-group">
-          <label for="email">Correo Electrónico</label>
-          <br><br>
-          <input type="email" class="form-control text-center" id="email" placeholder="Ingresa tu correo">
-        </div>
+          <label for="username">Nombre de Usuario</label><br><br>
+          <input type="text" class="form-control text-center" id="username" placeholder="Ingresa tu nombre de usuario" required #username>
+        </div><br>
         <div class="form-group">
-          <br>
-          <label for="password">Contraseña</label>
-          <br><br>
-          <input type="password" class="form-control text-center" id="password" placeholder="Ingresa tu contraseña">
+          <label for="password">Contraseña</label><br><br>
+          <input type="password" class="form-control text-center" id="password" placeholder="Ingresa tu contraseña" required #password>
         </div><br>
         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
       </form>
+
     </div>
   </div>
 </div>

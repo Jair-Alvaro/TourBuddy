@@ -1,0 +1,25 @@
+/* styles.css o en el archivo de estilos del componente */
+
+.thumbnail-container {
+    float: left;
+    margin: 5px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .thumbnail-img {
+    width: 300px; /* Ajusta el tamaño según sea necesario */
+    height: 150px;
+    border: 1px solid #fff;
+  }
+  
+  .thumbnail-container:hover {
+    transform: scale(1.1);
+  }
+  
+  .main-image {
+    /* Ajusta el estilo principal si es necesario */
+    width: 100%;
+    max-width: 100%; /* Ajusta el tamaño según sea necesario */
+    margin: 0 auto; /* Centra la imagen principal */
+  }
+  

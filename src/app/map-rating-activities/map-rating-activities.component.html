@@ -1,0 +1,13 @@
+<!-- map-rating-activities.component.html -->
+<div id="map" style="height: 300px;"></div>
+<div>
+  <h4>Rating</h4>
+  <!-- Agrega aquí tu componente de calificación -->
+  <p>Rating: {{ rating }}</p>
+</div>
+<div>
+  <h4>Activities</h4>
+  <ul>
+    <li *ngFor="let activity of activities">{{ activity }}</li>
+  </ul>
+</div>

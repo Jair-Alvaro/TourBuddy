@@ -1,0 +1,9 @@
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  
+  .col-md-4 {
+    padding-right: 15px;
+    padding-left: 15px;
+  }

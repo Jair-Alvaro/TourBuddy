@@ -1,6 +1,7 @@
 // app.component.ts
 
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isAuthenticated = false;
+  constructor(public authService: AuthService) {}  // Inyecta el servicio en el constructor
 
-  // Otros métodos y lógica aquí...
+  logout() {
+    this.authService.logout();
+    // Puedes redirigir a la página de inicio de sesión u otras acciones después de cerrar sesión
+  }
 }

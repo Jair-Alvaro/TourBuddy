@@ -1,0 +1,15 @@
+/* Agrega este estilo en tu archivo de estilos global o en el componente específico si prefieres */
+.card-img-top {
+    border: 2px solid #000; /* Borde de doble línea */
+    border-radius: 10px; /* Bordes redondeados para suavizar la apariencia */
+    overflow: hidden; /* Oculta cualquier contenido que sobresalga del contenedor */
+  }
+  
+  .card-img-top img {
+    width: 100%; /* Hace que la imagen llene el contenedor */
+    height: 100%; /* Hace que la imagen llene el contenedor */
+    object-fit: cover; /* Escala y recorta la imagen para llenar el contenedor */
+    transform: rotate(3deg); /* Inclina ligeramente la imagen en sentido de las agujas del reloj */
+    margin-left: -10px; /* Ajusta el margen izquierdo para simular un corte irregular */
+  }
+  
