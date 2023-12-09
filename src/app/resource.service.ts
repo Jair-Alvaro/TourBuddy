@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ResourceService {
-  private resourcesPath = '/places';
 
   constructor(private firestore: AngularFirestore) {}
 
@@ -16,8 +15,7 @@ export class ResourceService {
     const resourcesFirebase = this.firestore.collection('places');
     return resourcesFirebase.valueChanges();
   }
-  getItemsById(id: string): Observable<any> {
-    const resourcesFirebase = this.firestore.collection('places').valueChanges();
-    return resourcesFirebase;  // Utiliza doc(id) para obtener un documento específico
+  getItemsById(code: number): Observable<any> {
+    return this.firestore.collection('places', ref => ref.where('code', '==', code)).valueChanges();
   }
 }

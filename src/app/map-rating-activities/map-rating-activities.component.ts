@@ -8,7 +8,8 @@ import * as L from 'leaflet';
   styleUrls: ['./map-rating-activities.component.css']
 })
 export class MapRatingActivitiesComponent implements OnInit {
-  @Input() location!: { lat: number; lng: number };
+  @Input() latitud!: number;
+  @Input() longitud!: number;
   @Input() rating!: number;
   @Input() activities!: string[];
 
@@ -19,14 +20,14 @@ export class MapRatingActivitiesComponent implements OnInit {
   }
 
   private initializeMap(): void {
-    this.map = L.map('map').setView([this.location.lat, this.location.lng], 13);
+    this.map = L.map('map').setView([this.latitud, this.longitud], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(this.map);
 
-    L.marker([this.location.lat, this.location.lng]).addTo(this.map)
+    L.marker([this.latitud, this.longitud]).addTo(this.map)
       .bindPopup('¡Esta es la ubicación!')
       .openPopup();
   }

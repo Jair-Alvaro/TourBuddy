@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ResourceCardComponent {
   @Input() resource: any; // Ajusta el tipo según la estructura de tus datos
+
 }
