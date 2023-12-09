@@ -16,10 +16,14 @@ export class MapRatingActivitiesComponent implements OnInit {
   map: any;
 
   ngOnInit(): void {
-    this.initializeMap();
+    setTimeout(()=>{
+      this.initializeMap();
+    },2000)
+    
   }
 
-  private initializeMap(): void {
+  private async initializeMap(): Promise<void> {
+    console.log(this.latitud)
     this.map = L.map('map').setView([this.latitud, this.longitud], 13);
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
