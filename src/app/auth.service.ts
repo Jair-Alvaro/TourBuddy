@@ -1,6 +1,5 @@
-// auth.service.ts
-
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -8,17 +7,16 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private isAuthenticated = false;
 
-  login(username: string, password: string): boolean {
-    // Simula la lógica de inicio de sesión (puedes personalizar esto según tus necesidades)
-    if (username === 'usuario1' && password === '123456789') {
-      this.isAuthenticated = true;
-      return true;
-    }
-    return false;
+  constructor(private auth: AngularFireAuth) {}
+
+  async login(username: string, password: string): Promise<void> {
+    await this.auth.signInWithEmailAndPassword(username, password);
+    this.isAuthenticated = true;
+    console.log('Usuario autenticado:', this.isAuthenticated);
   }
 
-  logout() {
-    // Lógica de cierre de sesión
+  async logout(): Promise<void> {
+    await this.auth.signOut();
     this.isAuthenticated = false;
   }
 

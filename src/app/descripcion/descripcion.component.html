@@ -1,0 +1,21 @@
+<div>
+  <div class="card p-1" id="actionButton">
+    <div class="btn-group d-flex justify-content-end">
+      <button (click)="darMeGusta()"><span><img src="../../assets/like-icon.png" alt="" width="28" height="28"></span></button>
+      <button (click)="verComentarios()"><span><img src="../../assets/comment-icon.png" alt="" width="28" height="28"></span></button>
+      <button *ngIf="mostrarBotonOpcional" (click)="accionOpcional()">
+        <span><img src="../../assets/pin-icon.png" alt="" width="28" height="28"></span>
+      </button>
+    </div>
+  </div>
+  <div class="card p-2" id="descripcion">
+    <div class="description-content" [ngClass]="{'expanded': isExpanded}" (click)="toggleExpansion()">
+      <p>
+        Descripción
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus fugit tempora sint eius quo magnam et nobis dolorem at dignissimos repudiandae incidunt placeat minus nulla, aspernatur ducimus voluptatem, porro dolor.
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos voluptatum, ullam nulla facilis ipsa voluptatem voluptas laboriosam qui quo? Placeat nostrum aspernatur ad neque qui consectetur voluptatem ipsa quasi quos.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae ex laudantium distinctio sed illo, iusto rerum totam dignissimos provident culpa, temporibus ea, voluptas repudiandae? Rerum maxime alias inventore consectetur fugit!
+      </p>
+    </div> 
+  </div>
+</div>

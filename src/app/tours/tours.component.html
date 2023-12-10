@@ -1,1 +1,6 @@
-<p>tours works!</p>
+<div class="row justify-content-between">
+    <div class="col-md-4" *ngFor="let route of routesFirebase | async">
+      <app-ruta [ruta]="route"></app-ruta>
+    </div>
+  </div>
+  

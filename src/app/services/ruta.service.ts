@@ -1,4 +1,3 @@
-// src/app/resource.service.ts
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
@@ -6,16 +5,14 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ResourceService {
+export class RutaService {
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore) { }
 
   getItems(): Observable<any[]> {
-    // Cambia 'tuColeccion' al nombre de tu colección en Firestore
+    
     const resourcesFirebase = this.firestore.collection('places');
     return resourcesFirebase.valueChanges();
   }
-  getItemsById(code: number): Observable<any> {
-    return this.firestore.collection('places', ref => ref.where('code', '==', code)).valueChanges();
-  }
+
 }

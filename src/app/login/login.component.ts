@@ -1,5 +1,3 @@
-// login.component.ts
-
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
@@ -12,17 +10,28 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
-  login(username: string, password: string) {
-    const loginSuccessful = this.authService.login(username, password);
-
-    if (loginSuccessful) {
-      this.router.navigate(['/recursos']);
-    } else {
-      // Muestra un mensaje de error o realiza acciones adicionales en caso de fallo de inicio de sesión
-    }
+  async login(username: string, password: string) {
+    this.authService.login(username, password)
+      .then(() => {
+        // La autenticación fue exitosa, redirige a la página de recursos
+        this.router.navigate(['/']);
+      })
+      .catch((error) => {
+        // Maneja el error de inicio de sesión, puedes mostrar un mensaje de error al usuario
+        console.error('Error de inicio de sesión:', error.code, error.message);
+        return false;
+      });
   }
+
   logout() {
-    this.authService.logout();
-    this.router.navigate(['/']);  // Asegúrate de que esta ruta coincida con la configuración de tu archivo de rutas
+    this.authService.logout()
+      .then(() => {
+        // La desconexión fue exitosa, redirige a la página principal u otra página según tu configuración
+        this.router.navigate(['/']);
+      })
+      .catch((error) => {
+        // Maneja el error de cierre de sesión si es necesario
+        console.error('Error al cerrar sesión:', error);
+      });
   }
 }

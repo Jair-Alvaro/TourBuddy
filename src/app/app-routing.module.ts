@@ -13,6 +13,9 @@ import { ResourceDetailsComponent } from './resource-details/resource-details.co
 import { ToursComponent } from './tours/tours.component';
 import { RecommendationsComponent } from './recommendations/recommendations.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RutaComponent } from './ruta/ruta.component';
+import { MapaComponent } from './mapa/mapa.component';
+import { RutaDetalleComponent } from './ruta-detalle/ruta-detalle.component';
 
 // app-routing.module.ts
 
@@ -24,7 +27,7 @@ const routes: Routes = [
   { path: 'resource-details/:id', component: ResourceDetailsComponent },
   { path: '', redirectTo: '/resources', pathMatch: 'full' }, 
   { path: 'experiencias', component: ExperiencesComponent, canActivate: [AuthGuard] },
-  { path: 'rutas', component: ToursComponent, canActivate: [AuthGuard] },
+  { path: 'ruta-detalle', component: RutaDetalleComponent, canActivate: [AuthGuard] },
   { path: 'recomendaciones', component: RecommendationsComponent, canActivate: [AuthGuard] },
   { path: 'perfil', component: ProfileComponent, canActivate: [AuthGuard] },
 ];

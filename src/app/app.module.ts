@@ -22,7 +22,16 @@ import { MapRatingActivitiesComponent } from './map-rating-activities/map-rating
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment';
+
+import { RutaComponent } from './ruta/ruta.component';
+import { MapaComponent } from './mapa/mapa.component';
+import { DescripcionComponent } from './descripcion/descripcion.component';
+import { ComentarioComponent } from './comentario/comentario.component';
+import { MapaService } from './mapa.service';
+import { MapOptionComponent } from './map-option/map-option.component';
+import { RutaDetalleComponent } from './ruta-detalle/ruta-detalle.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +47,13 @@ import { environment } from 'src/environments/environment';
     ResourceCardComponent,
     ResourceDetailsComponent,
     DescriptionCommentsComponent,
-    MapRatingActivitiesComponent
+    MapRatingActivitiesComponent,
+    RutaComponent,
+    MapaComponent,
+    DescripcionComponent,
+    ComentarioComponent,
+    MapOptionComponent,
+    RutaDetalleComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +61,7 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
   providers: [
     AuthService, 

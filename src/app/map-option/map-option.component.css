@@ -1,0 +1,29 @@
+
+.btn-purple {
+    color: white;  
+    background-color: rgba(168, 7, 168, 0.5);
+    border-color: rgba(168, 7, 168, 0.5);
+  }
+  .btn-purple:hover {
+    color: white;  
+    background-color: rgba(168, 7, 168, 0.5);
+    border-color: rgba(168, 7, 168, 0.5);
+  }
+  .btn-purple.active,
+  .btn-check:checked + .btn.btn-purple {
+    color: white;
+    background-color: rgba(168, 7, 168, 0.8);
+    border-color: rgba(168, 7, 168, 0.8);
+  }
+  /* #comments{
+    font-family: Verdana, Geneva, sans-serif;
+font-size: 13px;
+letter-spacing: 1px;
+word-spacing: 2px;
+color: #000000;
+font-weight: normal;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+  } */
