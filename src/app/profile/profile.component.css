@@ -1,0 +1,17 @@
+/* profile.component.css */
+
+.profile-details {
+    background-color: #000000;
+    padding: 10px;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 1000;
+    display: none;
+  }
+  
+  .profile-details.show {
+    display: block;
+  }
+  

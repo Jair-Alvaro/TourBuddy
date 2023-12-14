@@ -1,15 +1,97 @@
-/* Agrega este estilo en tu archivo de estilos global o en el componente específico si prefieres */
+
 .card-img-top {
-    border: 2px solid #000; /* Borde de doble línea */
-    border-radius: 10px; /* Bordes redondeados para suavizar la apariencia */
-    overflow: hidden; /* Oculta cualquier contenido que sobresalga del contenedor */
-  }
-  
-  .card-img-top img {
-    width: 100%; /* Hace que la imagen llene el contenedor */
-    height: 100%; /* Hace que la imagen llene el contenedor */
-    object-fit: cover; /* Escala y recorta la imagen para llenar el contenedor */
-    transform: rotate(3deg); /* Inclina ligeramente la imagen en sentido de las agujas del reloj */
-    margin-left: -10px; /* Ajusta el margen izquierdo para simular un corte irregular */
-  }
-  
+  border: 2px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-img-top img {
+  width: 105%;
+  height: 102%;
+  object-fit: cover;
+  margin-left: -10px;
+}
+
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 28px; /* Aumenta el tamaño de fuente de las estrellas */
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: rgb(87, 87, 87);
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
+
+
+.rating-container {
+  display: flex;
+  align-items: center;
+}
+
+.rating-text {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.rating-stars {
+  width: 100px; /* Reduce el ancho de las estrellas para que sean más grandes */
+}
+
+.button-container {
+  margin-left: auto; /* Empuja el botón hacia el lado derecho del contenedor */
+  display: flex;
+  align-items: center;
+}
+
+.circular-button {
+  background-color: #000000; /* Color negro para el fondo del botón */
+  color: #ffffff; /* Color blanco para el texto del botón */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px; /* Ajusta el tamaño del texto */
+  width: 40px; /* Ajusta el tamaño del botón */
+  height: 40px;
+  text-decoration: none; /* Elimina la subraya que suele aparecer en los enlaces */
+}
+
+.circular-button:hover {
+  opacity: 0.8;
+}
+
+.card-link {
+  /* Si deseas conservar el color original del enlace, puedes agregar este estilo */
+  color: inherit;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  /* Agrega algún estilo adicional cuando el enlace se coloca */
+  opacity: 0.8;
+}

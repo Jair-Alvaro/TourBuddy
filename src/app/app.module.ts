@@ -32,6 +32,11 @@ import { ComentarioComponent } from './comentario/comentario.component';
 import { MapaService } from './mapa.service';
 import { MapOptionComponent } from './map-option/map-option.component';
 import { RutaDetalleComponent } from './ruta-detalle/ruta-detalle.component';
+import { ProfileService } from './profile.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Agregado
+
+
 
 @NgModule({
   declarations: [
@@ -62,11 +67,14 @@ import { RutaDetalleComponent } from './ruta-detalle/ruta-detalle.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    BrowserAnimationsModule,
+    NgbModule,
   ],
   providers: [
     AuthService, 
     AuthGuard,
-    ResourceService
+    ResourceService,
+    ProfileService
   ],
   bootstrap: [AppComponent]
 })

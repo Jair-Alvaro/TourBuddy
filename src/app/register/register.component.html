@@ -1,29 +1,48 @@
-<!-- register.component.html -->
-
-<div class="container mt-4">
+<div class="container mt-4"><br>
   <div class="d-flex justify-content-center">
-    <div class="card p-4 mx-auto text-center" style="border-radius: 15px; width: 400px;">
-      <h2 class="mb-4">Registrarse</h2>
-      <form>
-        <div class="form-group">
-          <label for="username">Nombre de Usuario</label>
-          <br><br>
-          <input type="text" class="form-control text-center" id="username" placeholder="Ingresa tu nombre de usuario" required>
+    <!-- Tarjeta que rodea tanto la imagen como el formulario -->
+    <div class="card border-dark rounded-lg d-flex" style="width: 85%; border-width: 3px; background-color: rgb(168, 7, 168);">
+      <!-- Contenido de la tarjeta -->
+      <div class="card-body p-0 d-flex flex-column flex-md-row" style="min-height: 550px">
+        <!-- Imagen en el lado izquierdo -->
+        <div class="col-md-6">
+          <!-- Reemplaza 'URL_DE_TU_IMAGEN' con la URL de tu imagen -->
+          <img src="https://png.pngtree.com/thumb_back/fw800/background/20230408/pngtree-travel-around-the-world-background-image_2169513.jpg" alt="Tu Imagen" class="img-fluid rounded-left" style="width: 100%; height: 100%;">
         </div>
-        <div class="form-group">
-          <br>
-          <label for="email">Correo Electrónico</label>
-          <br><br>
-          <input type="email" class="form-control text-center" id="email" placeholder="Ingresa tu correo" required>
+
+        <!-- Formulario en el lado derecho -->
+        <div class="card p-4" style="flex: 1; border: 3px solid rgb(168, 7, 168); border-radius: 0 15px 15px 0;">
+          <h2 class="mb-4 text-center">Registrarse</h2>
+          <!-- Muestra una alerta si el registro fue exitoso -->
+          <div *ngIf="registrationSuccessful" class="alert alert-success" role="alert">
+            ¡Registro exitoso! Redirigiendo a Recomendaciones...
+          </div>
+
+          <form (ngSubmit)="register(username.value, email.value, password.value)">
+            <div class="form-group text-center">
+              <label for="username">Nombre de Usuario</label>
+              <br><br>
+              <!-- Utiliza ngModel para vincular el valor del campo de entrada a una propiedad en tu componente -->
+              <input type="text" class="form-control text-center" id="username" placeholder="Ingresa tu nombre de usuario" required #username>
+            </div>
+            <div class="form-group text-center">
+              <br>
+              <label for="email">Correo Electrónico</label>
+              <br><br>
+              <!-- Utiliza ngModel para vincular el valor del campo de entrada a una propiedad en tu componente -->
+              <input type="email" class="form-control text-center" id="email" placeholder="Ingresa tu correo" required #email>
+            </div>
+            <div class="form-group text-center">
+              <br>
+              <label for="password">Contraseña</label>
+              <br><br>
+              <!-- Utiliza ngModel para vincular el valor del campo de entrada a una propiedad en tu componente -->
+              <input type="password" class="form-control text-center" id="password" placeholder="Ingresa tu contraseña" required #password>
+            </div><br>
+            <button type="submit" class="btn btn-success" style="background-color: rgb(168, 7, 168); width: 100%;">Registrarse</button>
+          </form>
         </div>
-        <div class="form-group">
-          <br>
-          <label for="password">Contraseña</label>
-          <br><br>
-          <input type="password" class="form-control text-center" id="password" placeholder="Ingresa tu contraseña" required>
-        </div><br>
-        <button type="submit" class="btn btn-success">Registrarse</button>
-      </form>
+      </div>
     </div>
   </div>
 </div>

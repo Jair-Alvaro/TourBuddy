@@ -8,30 +8,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  error: string | null = null;
+
   constructor(private authService: AuthService, private router: Router) {}
 
   async login(username: string, password: string) {
-    this.authService.login(username, password)
-      .then(() => {
-        // La autenticación fue exitosa, redirige a la página de recursos
-        this.router.navigate(['/']);
-      })
-      .catch((error) => {
-        // Maneja el error de inicio de sesión, puedes mostrar un mensaje de error al usuario
-        console.error('Error de inicio de sesión:', error.code, error.message);
-        return false;
-      });
+    try {
+      const loginSuccessful = await this.authService.login(username, password);
+
+      if (loginSuccessful) {
+        this.router.navigate(['/recursos']); // Redirige al usuario a la ruta de recursos
+      } else {
+        this.error = 'Credenciales incorrectas. Por favor, inténtalo de nuevo.';
+        setTimeout(() => {
+          this.error = null;
+        }, 3000);
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+    }
   }
 
   logout() {
-    this.authService.logout()
-      .then(() => {
-        // La desconexión fue exitosa, redirige a la página principal u otra página según tu configuración
-        this.router.navigate(['/']);
-      })
-      .catch((error) => {
-        // Maneja el error de cierre de sesión si es necesario
-        console.error('Error al cerrar sesión:', error);
-      });
+    this.authService.logout();
+    this.router.navigate(['/']);
   }
 }

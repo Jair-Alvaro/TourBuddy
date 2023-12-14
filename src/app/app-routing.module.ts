@@ -29,7 +29,6 @@ const routes: Routes = [
   { path: 'experiencias', component: ExperiencesComponent, canActivate: [AuthGuard] },
   { path: 'ruta-detalle', component: RutaDetalleComponent, canActivate: [AuthGuard] },
   { path: 'recomendaciones', component: RecommendationsComponent, canActivate: [AuthGuard] },
-  { path: 'perfil', component: ProfileComponent, canActivate: [AuthGuard] },
 ];
 
 

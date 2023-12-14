@@ -1,34 +1,59 @@
-
+<!-- src/app/resource-details/resource-details.component.html -->
 <div class="container mt-5" *ngIf="resource">
+
+<!-- src/app/resource-details/resource-details.component.html -->
+<div class="card custom-card">
   <div class="row">
     <!-- Imagen principal grande -->
-    <div class="col-md-8">
-      <img [src]="resource.photo" class="img-fluid rounded polaroid main-image" alt="Large Image" (click)="showImage(resource.photo)">
+    <h2 class="mb-3">{{ resource.name }}</h2>
+    <div class="col-md-8 item">
+      <img [src]="resource.photo" class="thumbnail-img rounded polaroid" (click)="showImage(resource.photo)">
     </div>
     
     <!-- Imágenes pequeñas relacionadas -->
     <div class="col-md-4">
       <div class="d-flex flex-wrap justify-content-center align-items-center">
-        <div *ngFor="let image of resource.gallery" class="mr-2 mb-2 thumbnail-container" (click)="showImage(image)">
-          <img [src]="image" class="thumbnail-img rounded polaroid" alt="Thumbnail Image">
+        <div *ngFor="let image of resource.gallery.slice(0, 3)" class="mr-2 mb-2 thumbnail-container">
+          <img [src]="image" class="thumbnail-img rounded polaroid RotarIzq" alt="Thumbnail Image">
+        </div>
+        <div class="mr-2 mb-2 thumbnail-container" *ngIf="resource.gallery.length > 3">
+          <a href="#" class="more-link" (click)="loadAllImages()">More</a>
         </div>
       </div>
     </div>
   </div>
-
+  </div>  <br>
+  <div class="card custom-card">
   <div class="row mt-4">
     <div class="col-md-8">
-      <h2 class="mb-3">{{ resource.name }} Details</h2>
-      <p class="mb-4">{{ resource.description }}</p>
-      
+      <h3>Description</h3>
+      <p class="mb-4">{{ shownDescription }}
+        <span *ngIf="fullDescription.length > descriptionLimit">
+          <a href="javascript:void(0)" class="more-description-link" (click)="loadMoreDescription()">
+            {{ isDescriptionExpanded ? 'Less' : 'More' }}
+          </a>
+        </span>
+      </p>
+
       <!-- Sección de comentarios -->
-      <app-description-comments [comments]="resource.comments"></app-description-comments>
+      <h3>Comments</h3>
+      <div *ngIf="resource.comments && resource.comments.length > 0">
+        <div *ngFor="let comment of resource.comments">
+          <div>
+            <p>{{ comment.comment }}</p>
+            <p>Created at: {{ comment.created_at | date: 'medium' }}</p>
+            <p>User: {{ comment.user?.name || 'Anonymous' }}</p>
+            <p>Email: {{ comment.user?.email || 'Not provided' }}</p>
+          </div>
+        </div>
+      </div>
     </div>
     
     <!-- Mapa, calificación y actividades -->
     <div class="col-md-4">
-      <div class="card p-3">
+      <div class="card p-3 purple-card">
         <app-map-rating-activities
+        
           [latitud]="resource.latitude"
           [longitud]="resource.longitude"
           [rating]="resource.rating"
@@ -37,4 +62,4 @@
       </div>
     </div>
   </div>
-</div>
+</div><br>

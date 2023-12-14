@@ -1,5 +1,4 @@
 <!-- app.component.html -->
-
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(168, 7, 168);">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" style="color: white; font-size: 24px; font-weight: bold;">TourBuddy</a>
@@ -34,14 +33,29 @@
           <a class="nav-link" routerLink="/recomendaciones" style="color: white; font-size: 18px;">Recomendaciones</a>
         </li>
         <li class="nav-item" *ngIf="authService.isAuthenticatedUser()">
-          <a class="nav-link" routerLink="/perfil" style="color: white; font-size: 18px;">Perfil</a>
+          <a class="nav-link" style="color: white; font-size: 18px; cursor: pointer;" (click)="openProfileModal(profileModalContent)">Perfil</a>
         </li>
         <li class="nav-item" *ngIf="authService.isAuthenticatedUser()">
           <a class="nav-link" routerLink="/"  (click)="logout()" style="color: white; font-size: 18px;">Cerrar Sesión</a>
         </li>
-        <!-- ... otras opciones según tus necesidades -->
       </ul>
     </div>
   </div>
 </nav>
 <router-outlet></router-outlet>
+
+<!-- Profile Modal -->
+<ng-template #profileModalContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Perfil</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <app-profile></app-profile>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancel')">Cerrar</button>
+  </div>
+</ng-template>

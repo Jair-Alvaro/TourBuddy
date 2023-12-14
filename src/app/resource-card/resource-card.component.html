@@ -1,22 +1,42 @@
-<br><br>
-<a [routerLink]="['/resource-details', resource.code]" class="card-link">
-  <!-- resource-card.component.html -->
-  <div class="card" style="width: 25rem;"> <!-- Ajusta el ancho según sea necesario -->
-      <img src="{{ resource.photo }}" class="card-img-top" alt="Resource Image">
-      <div class="card-body">
-        <h5 class="card-title">{{ resource.name }}</h5>
-        <p class="card-text">
-          <span>
-            <i class="bi bi-geo-alt"></i> {{ resource.distance }} km
-          </span>
-          <br>
-          rating:
-          <span *ngFor="let _ of [1, 2, 3, 4, 5]">
-            <i class="bi bi-star-fill"></i>
-          </span>
-          <br>
-          Comments: {{ resource.comments }}
-        </p>
+<br><a class="card-link">
+  <div class="card" style="width: 23rem; border-radius: 15px; border: 3px solid rgba(192, 88, 175, 0.8);">
+    <div class="card-img-top contenedor">
+      <img src="{{ resource.photo }}" alt="Resource Image" style="height: 160px; object-fit: cover; border-radius: 15px 15px 0 0; margin-left: -10px;">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ resource.name }}</h5>
+      <p class="card-text">
+        <br>
+        <span>
+          <strong>Category:</strong> {{ resource.sub_type_category }}
+        </span>
+        <br>
+        <span>
+          <strong>District:</strong> {{ resource.district }}
+        </span>
+        <br>
+        <div class="rating-container">
+          <form id="form">
+            <p class="clasificacion">
+              <input id="radio1" type="radio" name="estrellas" value="5" (click)="$event.stopPropagation()">
+              <label for="radio1">★</label>
+              <input id="radio2" type="radio" name="estrellas" value="4" (click)="$event.stopPropagation()">
+              <label for="radio2">★</label>
+              <input id="radio3" type="radio" name="estrellas" value="3" (click)="$event.stopPropagation()">
+              <label for="radio3">★</label>
+              <input id="radio4" type="radio" name="estrellas" value="2" (click)="$event.stopPropagation()">
+              <label for="radio4">★</label>
+              <input id="radio5" type="radio" name="estrellas" value="1" (click)="$event.stopPropagation()">
+              <label for="radio5">★</label>
+            </p>
+          </form>
+          <div class="button-container">
+            <button [routerLink]="['/resource-details', resource.code]" class="circular-button">+</button>
+          </div>
+          <span><img src="../../assets/pin-icon.png" alt="" width="28" height="28"></span>
+          <span><img src="../../assets/comment-icon.png" alt="" width="28" height="28"></span>
+          
+        </div>
       </div>
-  </div>
+    </div>
 </a>
