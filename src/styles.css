@@ -2,7 +2,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import url("https://unpkg.com/leaflet@1.7.1/dist/leaflet.css");
-@import url("node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+
 
 body {
     margin: 0;
