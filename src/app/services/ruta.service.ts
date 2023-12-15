@@ -31,7 +31,6 @@ export class RutaService {
           }
         });
 
-        // Convertir el mapa a un array de objetos
         return Array.from(departmentsMap, ([department, provinces]) => ({ department, provinces: Array.from(provinces) }));
       })
     );

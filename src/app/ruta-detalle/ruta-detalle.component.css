@@ -1,13 +1,16 @@
 /* carta.component.css */
 #mapa {
-    width: 40%;
-    height: max-content;
+    margin-top: 3%;
+    width:70%;
+    height: 650px;
   }
   
   #mapOptions {
+    margin-top: 3%;
     width: 50%;
+    height: 650px;
   }
-  
+ 
   #mapContainer {
     width: 100%;
   }

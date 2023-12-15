@@ -9,7 +9,10 @@ export class MapOptionComponent {
   isButtonSelected: boolean = false;
   selectedButton: string = '1';
   departments?: any;
-  constructor(private routes: MapaService) {}
+  currentProvince!: string;
+  constructor(private routes: MapaService) {
+
+  }
   selectButton() {
     this.isButtonSelected = true;
   }
@@ -18,7 +21,10 @@ export class MapOptionComponent {
     this.isButtonSelected = false;
   }
   ngOnInit(){
-    this.routes.getCitys("arequipa").subscribe((items) => {
+    this.routes.currentProvince.subscribe(province => {
+      this.currentProvince = province;
+    });
+    this.routes.getCitys(this.currentProvince).subscribe((items) => {
       this.departments = items;
       console.log(this.departments)
     })

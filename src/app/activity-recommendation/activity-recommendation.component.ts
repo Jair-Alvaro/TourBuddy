@@ -22,15 +22,24 @@ export class ActivityRecommendationComponent {
     } else {
       this.selectedActivityIds.push(activityId);
     }
-
+  
     this.loadPlaces();
   }
+  
   loadPlaces() {
     this.places = []; // Limpiar lugares antes de cargar los nuevos
     this.selectedActivityIds.forEach(id => {
-      this.firestore.getPlacesByActivityId(id).subscribe((data: any[]) => {
-        this.places = [...this.places, ...data];
-      });
+      if (id !== undefined) {
+        this.firestore.getPlacesByActivityId(id!).subscribe((data: any[] | undefined) => {
+          if (data !== undefined) {
+            this.places = [...this.places, ...data];
+          }
+        });
+      }
     });
   }
+  isSelectedActivity(activityId: string): boolean {
+    return this.selectedActivityIds.includes(activityId);
+  }
+    
 }
