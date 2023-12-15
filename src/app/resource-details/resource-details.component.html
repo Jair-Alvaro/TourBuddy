@@ -37,8 +37,8 @@
 
       <!-- Sección de comentarios -->
       <h3>Comments</h3>
-      <div *ngIf="resource.comments && resource.comments.length > 0">
-        <div *ngFor="let comment of resource.comments">
+      <!-- <div *ngIf="resource.comments && resource.comments.length > 0"> -->
+        <div *ngFor="let comment of comments">
           <div>
             <p>{{ comment.comment }}</p>
             <p>Created at: {{ comment.created_at | date: 'medium' }}</p>
@@ -46,7 +46,7 @@
             <p>Email: {{ comment.user?.email || 'Not provided' }}</p>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
     
     <!-- Mapa, calificación y actividades -->

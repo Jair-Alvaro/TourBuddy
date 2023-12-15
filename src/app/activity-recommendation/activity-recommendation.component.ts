@@ -28,16 +28,26 @@ export class ActivityRecommendationComponent {
   
   loadPlaces() {
     this.places = []; // Limpiar lugares antes de cargar los nuevos
+    
     this.selectedActivityIds.forEach(id => {
       if (id !== undefined) {
         this.firestore.getPlacesByActivityId(id!).subscribe((data: any[] | undefined) => {
           if (data !== undefined) {
-            this.places = [...this.places, ...data];
+            // Verificar si el lugar tiene todas las actividades seleccionadas
+            const hasAllActivities = this.selectedActivityIds.every(activityId =>
+              data.some(place => place.activities.includes(activityId))
+            );
+  
+            // Agregar el lugar solo si tiene todas las actividades seleccionadas
+            if (hasAllActivities) {
+              this.places = [...this.places, ...data];
+            }
           }
         });
       }
     });
   }
+  
   isSelectedActivity(activityId: string): boolean {
     return this.selectedActivityIds.includes(activityId);
   }

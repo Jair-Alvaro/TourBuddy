@@ -35,15 +35,11 @@ export class ResourceService {
   }
 
   // Obtén los comentarios utilizando collection() en lugar de collectionGroup()
-  getCommentsForPlace(resourceId: string): Observable<any[]> {
-    console.log(resourceId);
-    return this.firestore.collection(`places/${resourceId}/comments`)
-      .snapshotChanges()
-      .pipe(
-        catchError((error) => {
-          console.error('Error fetching comments:', error);
-          return throwError(error);
-        })
-      );
+  getCommentsForPlace(placeId: string): Observable<any[]> {
+    return this.firestore
+      .collection('places')
+      .doc(placeId)
+      .collection('comments')
+      .valueChanges();
   }
 }

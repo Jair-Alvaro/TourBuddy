@@ -2,4 +2,16 @@
     background-color: #3498db;
     color: #ffffff; 
   }
-  
+  .btn{
+    border-color: #3498db;
+    border-radius: 6%;
+  }
+  .btn:hover{
+    background-color: #3498db;
+    border-color: #3498db;
+    color: #ffffff;
+  }
+  #lugares{
+    max-height: 560px;
+    overflow-y: auto; 
+  }

@@ -20,7 +20,7 @@ export class ResourceDetailsComponent implements OnInit {
     rating: 0,
     activities: [],
   };
-
+  comments:any[] = [];
   // Nueva variable para almacenar la descripción completa
   fullDescription: string = '';
 
@@ -48,6 +48,11 @@ export class ResourceDetailsComponent implements OnInit {
           this.resource = details[0];
           console.log('Resource Details:', this.resource);
 
+          // Simulación: Asigna la descripción completa
+          this.fullDescription = this.resource.description;
+          // Inicialmente, muestra solo una parte de la descripción
+          this.shownDescription = this.fullDescription.slice(0, this.descriptionLimit);
+
           // Obtener comentarios de la subcolección
           this.resourceService.getCommentsForPlace(resourceId).subscribe(
             (comments) => {
@@ -71,11 +76,6 @@ export class ResourceDetailsComponent implements OnInit {
               console.error('Error fetching comments:', error);
             }
           );
-
-          // Simulación: Asigna la descripción completa
-          this.fullDescription = this.resource.description;
-          // Inicialmente, muestra solo una parte de la descripción
-          this.shownDescription = this.fullDescription.slice(0, this.descriptionLimit);
         },
         (error) => {
           console.error('Error fetching resource details:', error);
@@ -87,7 +87,6 @@ export class ResourceDetailsComponent implements OnInit {
       console.error('No valid resource ID found.');
     }
   }
-
   showImage(image: string): void {
     // Lógica para mostrar la imagen
   }

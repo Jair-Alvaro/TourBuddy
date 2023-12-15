@@ -1,16 +1,50 @@
-<div style="display: flex;">
-  <div id="actividades" style="flex: 1;">
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  "
+>
+  <!-- Actividades en la parte superior -->
+  <div id="actividades" style="flex: 1; column-count: 3; column-gap: 20px">
     <h2>Actividades</h2>
     <div *ngFor="let activity of activities">
-      <button class="btn" (click)="onActivityClick(activity.activity_code)">{{ activity.activity }}</button>
+      <button
+        class="btn m-1"
+        (click)="onActivityClick(activity.activity_code)"
+        [ngClass]="{
+          'selected-activity': isSelectedActivity(activity.activity_code)
+        }"
+      >
+        {{ activity.activity }}
+      </button>
     </div>
   </div>
 
-  <div id="recursos" style="flex: 1;">
+  <!-- Lugares en la parte inferior -->
+  <div
+    id="recursos"
+    style="
+      flex: 1;
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    "
+  >
     <h2>Lugares por Actividad</h2>
+    <div id="lugares">
     <div *ngFor="let place of places">
-      <p>DEPARTAMENTO:{{ place.department }}</p>
-      <p>DISTRITO:{{ place.district}}</p>
+      <div>
+        <a
+          class="list-group-item list-group-item-action"
+          [routerLink]="['/resource-details', place.code]"
+          >{{ place.name }}</a
+        >
+      </div>
     </div>
+  </div>
+  
   </div>
 </div>
