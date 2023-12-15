@@ -3,9 +3,12 @@
   width: 40%;
   height: max-content;
 }
-
+#mapCSS{
+  height: max-content;
+}
 #mapOptions {
   width: 50%;
+  height: max-content;
 }
 
 #mapContainer {
@@ -23,6 +26,7 @@
 
 .ruta {
   width: 100%;
+  height: max-content;
   display: flex;
   flex-direction: column; /* Organizar los elementos en columnas */
   gap: 10px;

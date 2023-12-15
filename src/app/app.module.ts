@@ -34,7 +34,9 @@ import { MapOptionComponent } from './map-option/map-option.component';
 import { RutaDetalleComponent } from './ruta-detalle/ruta-detalle.component';
 import { ProfileService } from './profile.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Agregado
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MapRecommendationComponent } from './map-recommendation/map-recommendation.component';
+import { ActivityRecommendationComponent } from './activity-recommendation/activity-recommendation.component'; // Agregado
 
 
 
@@ -58,7 +60,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; // Agregado
     DescripcionComponent,
     ComentarioComponent,
     MapOptionComponent,
-    RutaDetalleComponent
+    RutaDetalleComponent,
+    MapRecommendationComponent,
+    ActivityRecommendationComponent
   ],
   imports: [
     BrowserModule,

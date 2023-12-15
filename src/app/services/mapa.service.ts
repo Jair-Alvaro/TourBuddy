@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable, map } from 'rxjs';
+import { Observable, BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +8,9 @@ import { Observable, map } from 'rxjs';
 export class MapaService {
   public userLocation?: [number, number];
   public markers: { latLng: [number, number]; label: string }[] = [];
+
+  private provinceSource = new BehaviorSubject<string>('');
+  currentProvince = this.provinceSource.asObservable();
 
   constructor(private firestore: AngularFirestore) {
     this.getUserLocation();
@@ -24,8 +27,12 @@ export class MapaService {
 
   public getCitys(province: string): Observable<any[]> {
     return this.firestore
-      .collection('places', (ref) => ref.where('province', '==', province))
+      .collection('places', (ref) => ref.where('province', '==', province).limit(50))
       .valueChanges();
+  }
+
+  updateProvince(province: string) {
+    this.provinceSource.next(province);
   }
 
   public getMapMarkers(city: string): Observable<any[]> {

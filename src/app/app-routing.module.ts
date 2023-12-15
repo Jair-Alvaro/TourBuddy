@@ -27,7 +27,8 @@ const routes: Routes = [
   { path: 'resource-details/:id', component: ResourceDetailsComponent },
   { path: '', redirectTo: '/resources', pathMatch: 'full' }, 
   { path: 'experiencias', component: ExperiencesComponent, canActivate: [AuthGuard] },
-  { path: 'ruta-detalle', component: RutaDetalleComponent, canActivate: [AuthGuard] },
+  { path: 'rutas', component: ToursComponent, canActivate: [AuthGuard] },
+  { path: 'ruta-detalle/:province', component: RutaDetalleComponent, canActivate: [AuthGuard] },
   { path: 'recomendaciones', component: RecommendationsComponent, canActivate: [AuthGuard] },
 ];
 

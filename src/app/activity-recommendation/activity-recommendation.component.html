@@ -1,0 +1,14 @@
+<div>
+    <h2>Actividades</h2>
+    <div *ngFor="let activity of activities">
+      <button (click)="onActivityClick(activity.id)">{{ activity.nombre }}</button>
+    </div>
+  </div>
+  
+  <div>
+    <h2>Lugares por Actividad</h2>
+    <div *ngFor="let place of places">
+      <!-- Mostrar detalles del lugar -->
+    </div>
+  </div>
+  

@@ -7,10 +7,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./tours.component.css']
 })
 export class ToursComponent {
-  routesFirebase!: Observable<any[]>;
-  constructor(private routeFirebase: RutaService){ }
+  departmentsWithProvinces!: Observable<any[]>;
 
-  ngOnInit():void{
-    this.routesFirebase = this.routeFirebase.getItems();
+  constructor(private rutaService: RutaService) { }
+
+  ngOnInit(): void {
+    this.departmentsWithProvinces = this.rutaService.getUniqueDepartmentsWithProvinces();
   }
 }

@@ -13,6 +13,7 @@ export class ResourcesComponent implements OnInit {
   constructor(private resourceService: ResourceService) { }
 
   ngOnInit(): void {
+    const pageSize = 10;
     this.resourcesFirebase = this.resourceService.getItems()
   }
 }

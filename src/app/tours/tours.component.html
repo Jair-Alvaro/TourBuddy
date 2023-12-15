@@ -1,6 +1,19 @@
-<div class="row justify-content-between">
-    <div class="col-md-4" *ngFor="let route of routesFirebase | async">
-      <app-ruta [ruta]="route"></app-ruta>
+<!-- app/components/tours/tours.component.html -->
+<div class="container py-3 mt-4">
+  <div class="row">
+    <div *ngFor="let departmentWithProvinces of (departmentsWithProvinces | async)" class="col-md-6 col-lg-4">
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+          {{ departmentWithProvinces.department }}
+        </div>
+        <div class="card-body">
+          <div *ngFor="let province of departmentWithProvinces.provinces">
+            <a [routerLink]="['/ruta-detalle', province]">
+              <button class="btn btn-outline-primary btn-sm m-1">{{ province }}</button>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  
+</div>
