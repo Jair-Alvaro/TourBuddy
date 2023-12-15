@@ -12,6 +12,6 @@
     color: #ffffff;
   }
   #lugares{
-    max-height: 560px;
+    max-height: 180px;
     overflow-y: auto; 
   }

@@ -4,11 +4,11 @@
     height: max-content;
   }
   #mapCSS{
-    height: max-content;
+    height: 500px;
   }
   #mapOptions {
     width: 100%;
-    height: max-content;
+    height: max-500px;
   }
   
   #mapContainer {
