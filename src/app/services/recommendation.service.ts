@@ -20,16 +20,17 @@ export class RecommendationService {
   }
 
   public getUserLocation() {
-    navigator.geolocation.getCurrentPosition(({ coords }) => {
-      //this.userLocation = [coords.latitude, coords.longitude];
-      //Lima
-      // this.userLocation = [-12.05196364388312, -77.03455031512652];
-      //Tacna
-      this.userLocation = [-18.008197169274418, -70.24164754029947]
-      //Ica
-      //this.userLocation = [-14.075092466066904, -75.73380824723986];
-      this.getNearbyPlaces();
-    });
+    // navigator.geolocation.getCurrentPosition(({ coords }) => {
+    //   //this.userLocation = [coords.latitude, coords.longitude];
+    //   //Lima
+    //   // this.userLocation = [-12.05196364388312, -77.03455031512652];
+    //   //Tacna
+    //   this.userLocation = [-18.008197169274418, -70.24164754029947]
+    //   //Ica
+    //   //this.userLocation = [-14.075092466066904, -75.73380824723986];
+    //   this.getNearbyPlaces();
+    // });
+    this.userLocation = [-12.05196364388312, -77.03455031512652];
   }
 
   public getNearbyPlaces() {
